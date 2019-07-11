@@ -37,5 +37,9 @@ importServerList()
 Import list of servers
 Separate into a list, and grab the oldschoolXX portion, where XX is the 
 	server number
-Send each line separately to 
+"OldschoolXX" needs to be associated with IP and ping (time=XXXms)
 """
+
+##########Just realized at 11:31PM I should probably##########
+##########utilize return functions and have one parent########
+##########function put everything togetherrrrrrrrrr###########
