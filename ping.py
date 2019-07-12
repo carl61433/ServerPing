@@ -3,12 +3,13 @@ import subprocess  # For executing a shell command
 import os
 
 def importServerList():
-	serverList = 0
+	serverList = []
 	serverListFile = open('ServerList.txt')
-	line = serverListFile.read().split()
-	print(line)
+	for line in serverListFile:
+		serverList.append(line.rstrip('\n'))
+	print(serverList)
 	#os.close('ServerList.txt') #Not the right way to close?
-	return line
+	return serverList
 	"""for serverList in line:
 		serverList = serverList.rstrip('\n')
 		ping(serverList)
@@ -36,7 +37,11 @@ def stringSplit(list):
 
 
 importServerList()
-#ping('google.com')
+"""
+def main(): #Main function to put everything together
+	server_file = input('Specify your server list here: ')
+	importServerList(server_file)
+"""
 
 
 """
