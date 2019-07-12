@@ -4,11 +4,9 @@ import os
 
 def importServerList():
 	serverList = []
-	serverListFile = open('ServerList.txt')
-	for line in serverListFile:
-		serverList.append(line.rstrip('\n'))
+	with open('ServerList.txt') as serverListFile:
+		serverList = serverListFile.read()
 	print(serverList)
-	#os.close('ServerList.txt') #Not the right way to close?
 	return serverList
 	"""for serverList in line:
 		serverList = serverList.rstrip('\n')
