@@ -1,25 +1,18 @@
 import platform    # For getting the operating system name
 import subprocess  # For executing a shell command
-import os
 
-def importServerList():
-	serverList = []
-	with open('ServerList.txt') as serverListFile:
-		serverList = serverListFile.read()
-	print(serverList)
-	return serverList
-	"""for serverList in line:
-		serverList = serverList.rstrip('\n')
-		ping(serverList)
-	"""
-	###Need to move the for loop to another function###
+def importServerList(serverNames):
+	server_list = []
+	with open(serverNames) as serverListFile:
+		server_list = serverListFile.read()
+	return server_list
 
-def ping(host):
+def ping(server): #ping an individual server and return in list form
 	output = []
-	command = ['ping', '-n', '1', host]
+	command = ['ping', '-n', '1', server]
 	output = subprocess.run(command, encoding='utf-8', stdout=subprocess.PIPE)
 	output = output.stdout.splitlines()
-	stringSplit(output)
+	print(output)
 
 
 def stringSplit(list):
@@ -34,21 +27,14 @@ def stringSplit(list):
 
 
 
-importServerList()
-"""
+#importServerList('ServerList.txt')
+#Main function to run it all
 def main(): #Main function to put everything together
-	server_file = input('Specify your server list here: ')
-	importServerList(server_file)
-"""
+	server_count = 0
+	#server_file = input('Specify your server list here: ') 
+		#Manual input of list
+	server_file = ('ServerList.txt') #Quick testing input
+	#ping(importServerList(server_file))
 
 
-"""
-Import list of servers
-Separate into a list, and grab the oldschoolXX portion, where XX is the 
-	server number
-"OldschoolXX" needs to be associated with ping (time=XXXms)
-"""
-
-##########Just realized at 11:31PM I should##########
-##########probably utilize return and have one#########
-##########parent function put everything together###########
+main()
